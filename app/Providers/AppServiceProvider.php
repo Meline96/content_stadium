@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Services\BetService;
+use App\Services\Contracts\BetService as BetServiceInterface;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton(BetServiceInterface::class, BetService::class);
     }
 
     /**
